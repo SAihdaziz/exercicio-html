@@ -17,6 +17,7 @@
       background-color: #121212;
       color: #f0f0f0;
       line-height: 1.6;
+      font-size: 18px;
     }
 
     header {
@@ -33,12 +34,13 @@
 
     /* Menu Hamburguer */
     .menu-toggle {
-      display: none;
+      display: flex;
       flex-direction: column;
       cursor: pointer;
       position: absolute;
       top: 1rem;
       left: 1rem;
+      z-index: 10;
     }
 
     .menu-toggle span {
@@ -53,12 +55,21 @@
       flex-direction: column;
       align-items: center;
       margin-top: 1rem;
+      background: #121212; /* Para contrastar melhor */
+      padding: 1rem;
+      position: absolute;
+      top: 60px; /* Para que o menu não sobreponha o header */
+      left: 0;
+      width: 100%;
     }
 
     nav a {
       color: #00ffaa;
       text-decoration: none;
-      margin: 0.5rem 0;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      text-align: center;
     }
 
     .hero-images {
@@ -109,6 +120,8 @@
         flex-direction: row;
         justify-content: center;
         gap: 2rem;
+        position: static;
+        margin-top: 0;
       }
 
       .menu-toggle {
@@ -166,45 +179,57 @@
     }
 
     button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-button:hover {
-  background-color: #0056b3;
-}
-
+    button:hover {
+      background-color: #0056b3;
+    }
 
     /* Layout geral */
-body {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-/* Responsivo para celular */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-    font-size: 16px;
-  }
+    /* Responsivo para celular */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+        font-size: 16px;
+      }
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-  }
+      .menu {
+        display: flex;
+        flex-direction: column;
+      }
 
-  .imagem {
-    width: 100%;
-    height: auto;
-  }
-}
+      .imagem {
+        width: 100%;
+        height: auto;
+      }
 
+      /* Ajustes para o conteúdo e os tamanhos de imagem */
+      .hero-images img {
+        width: 100%;
+        height: auto;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .contact a {
+        font-size: 1.5rem; /* Aumenta o tamanho para ser mais fácil de clicar */
+      }
+    }
   </style>
 </head>
 <body>
@@ -283,12 +308,14 @@ body {
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menu");
+      // Muda a visibilidade do menu com base no estado atual
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
 
 </body>
 </html>
+
 
 
 
